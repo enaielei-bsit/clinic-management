@@ -76,3 +76,7 @@ end
 
 gem "figaro", "~> 1.2"
 gem "kaminari", "~> 1.2"
+
+gem "bcrypt", "~> 3.1"
+
+gem "importmap-rails", "~> 1.0"

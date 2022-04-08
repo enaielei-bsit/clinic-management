@@ -3,4 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root("application#index")
+  
+  # Sign-Up
+  get("/auth/sign-up", to: "users#new", as: :new_user)
+  post("/auth/sign-up", to: "users#create", as: :create_user)
 end

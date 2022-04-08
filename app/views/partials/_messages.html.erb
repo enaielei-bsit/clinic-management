@@ -1,0 +1,17 @@
+<% messages ||= [] %>
+<% if messages.any? %>
+    <%
+    for message in messages
+        type = message[:type] || message["type"]
+        title = message[:title] || message["title"]
+        subtitles = message[:subtitles] || message["subtitles"] || []
+    %>
+        <% if subtitles.any? %>
+            <ul class="<%= type %>-message">
+                <% for subtitle in subtitles %>
+                    <li><%= subtitle %></li>
+                <% end %>
+            </ul>
+        <% end %>
+    <% end %>
+<% end %>
