@@ -1,0 +1,32 @@
+<% provide(:title, "Sign In") %>
+<%= render("partials/navigation", links: [
+    ["Administrator", new_session_path(type: "administrator")],
+    ["Student", new_session_path(type: "student")],
+    ["Sign Up", new_user_path(type: params[:type])],
+]) %>
+<h1><%= controller.type.capitalize %> - Sign In</h1>
+<p>Already a User? Log in your account to gain access!</p>
+<br>
+<%=
+    form_with(
+        model: @session,
+        scope: :session,
+        url: new_session_path()
+    ) do |form|
+%>
+    <div>
+        <div><%= form.label(:email, "Email") %></div>
+        <%= form.email_field(:email) %>
+    </div>
+    <div>
+        <div><%= form.label(:password, "Password") %></div>
+        <%= form.password_field(:password) %>
+    </div>
+    <div>
+        <%= form.check_box(:remembered) %> <%= form.label(:remembered, "Remember my session") %>
+    </div>
+    <br>
+    <%= form.submit("Submit") %>
+<% end %>
+<br>
+<%= render("partials/messages", messages: flash[:messages]) %>

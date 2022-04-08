@@ -1,0 +1,24 @@
+<%
+    links ||= []
+%>
+<% if links.any? %>
+    <nav>
+        <%
+        i = 0
+        for link in links
+            i += 1
+            if link.is_a?(Hash)
+                label = link[:label] || link["label"]
+                url = link[:url] || link["url"]
+            else
+                label = link.first
+                url = link.last
+            end
+        %>
+            <%= link_to(label, url) %>
+            <% if i < links.size %>
+                <span> | </span>
+            <% end %>
+        <% end %>
+    </nav>
+<% end %>

@@ -1,3 +1,9 @@
+<% provide(:title, "Sign Up") %>
+<%= render("partials/navigation", links: [
+    ["Administrator", new_user_path(type: "administrator")],
+    ["Student", new_user_path(type: "student")],
+    ["Sign In", new_session_path(type: params[:type])],
+]) %>
 <h1><%= controller.type.capitalize %> - Sign Up</h1>
 <p>New User? Create an account in minutes!</p>
 <br>
@@ -32,6 +38,8 @@
         <div><%= form.label(:password_confirmation, "Password Confirmation") %></div>
         <%= form.password_field(:password_confirmation) %>
     </div>
+    <br>
     <%= form.submit("Submit") %>
 <% end %>
+<br>
 <%= render("partials/messages", messages: flash[:messages]) %>

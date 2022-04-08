@@ -1,4 +1,4 @@
-class Student < ApplicationRecord
+class Student < User
     validates(
         :email,
         presence: true,
@@ -19,12 +19,4 @@ class Student < ApplicationRecord
         presence: true,
         length: {maximum: 50}
     )
-    validates(
-        :password,
-        presence: true,
-        allow_nil: true,
-        length: {minimum: 6}
-    )
-
-    has_secure_password()
 end

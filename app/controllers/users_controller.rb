@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action() do |controller|
+    before_action() do |ctrl|
         # signed_in = signed_in()
         # if !signed_in
         #     redirect_to(new_user_url())

@@ -1,0 +1,6 @@
+<% provide(:title, "Sign Up") %>
+<%= render("partials/navigation", links: [
+    ["Administrator", new_user_path(type: "administrator")],
+    ["Student", new_user_path(type: "student")],
+    ["Sign In", new_session_path(type: params[:type])],
+]) %>
